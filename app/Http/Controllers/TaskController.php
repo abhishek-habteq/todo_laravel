@@ -12,7 +12,7 @@ class TaskController extends Controller
         $query = $request->input('query');
         $tasks = $query ? Task::where('title', 'like', '%' . $query . '%')
                            ->orWhere('description', 'like', '%' . $query . '%')
-                           ->paginate(20) : Task::paginate(20);
+                           ->paginate(9) : Task::paginate(9);
 
         return view('index', compact('tasks', 'query'));
     }
